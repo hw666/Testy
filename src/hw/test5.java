@@ -98,6 +98,8 @@ public class test5 {
 		System.out.println(strbuf.length());
 		
 		System.out.println();
+		System.out.println();
+		System.out.println();
 		
 	}
 }
