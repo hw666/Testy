@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 {
 	unsigned char *key = "abcdefjh";
 
-	unsigned char *data = "123456789123456789123456789123456789";  /* 原始明文 */
+	unsigned char *data = "12345678";  /* 原始明文 */
 
 	unsigned char out[1024] = { 0 };
 
@@ -26,17 +26,17 @@ int main(int argc, char *argv[])
 
 	int datalen = strlen(data);
 
-	D3DES_Encrypt(data,key,out, datalen);
+	D3DES_Encrypt(data,key,out, datalen); //加密
 
 	int len = (datalen / 8 + 1) * 8;
 
 	int i = 0;
 	for (i = 0; i < len; i++) {
-		printf("%02X", *(out + i));
+		printf("%x", *(out + i));
 	}
+	printf("\n");
 
-
-	D3DES_Decrypt(out, key,tmp, datalen);
+	D3DES_Decrypt(out, key,tmp, datalen); //解密
 
 	for (i = 0; i < datalen; i++) {
 		printf("%c", *(tmp + i));
